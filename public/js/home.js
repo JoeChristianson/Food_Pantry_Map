@@ -14,6 +14,8 @@ const initMap = async () => {
       console.log(response)
       const data = await response.json()
       console.log(data)
+      const latitude = "lat:" + data.latitude;
+      const longitude = "lng:" + data.longitude;
   }
   getPantryData();
     // const foodStops = [
