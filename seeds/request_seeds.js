@@ -7,8 +7,8 @@ const requestData = [
         pantry_id: 1,
     },
     {
-        product_name: 'soup cans',
-        amount: '15 cans',
+        product_name: 'Sugar',
+        amount: '15 packs',
         pantry_id: 2,
     }
 ]

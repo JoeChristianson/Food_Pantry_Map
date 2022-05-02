@@ -7,7 +7,8 @@ const pantryData = [
         city: 'Minneapolis',
         latitude: 44.971829446,
         longitude: -93.233832398,
-        contact_phone: '612-123-4567'
+        contact_phone: '612-123-4567',
+        user_id: 1,
         
     },
     {
@@ -16,7 +17,8 @@ const pantryData = [
         city: 'Minneapolis',
         latitude: 44.9725278,
         longitude: -93.2620452,
-        contact_phone: '612-321-7654'
+        contact_phone: '612-321-7654',
+        user_id: 2,
     }
 ]
 
