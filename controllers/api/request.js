@@ -7,11 +7,12 @@ router.post("/", async (req,res) => {
         const newRequest = await Request.create({
     
             product_name: req.body.productName,
-            amount: req.body.amount
-
+            amount: req.body.amount,
+            pantry_id: req.session.pantryId
         })
-    }catch{
-
+        res.json(newRequest)
+    }catch(err){
+        res.status(500).json(err)
     }
 })
 
