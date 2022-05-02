@@ -4,9 +4,11 @@ const {Pantry,Request} = require("../../models")
 // This gets the logged in users pantry data
 router.get("/", async (req,res) => {
     try{
+        console.log(req.session.pantryId)
         const results = await Pantry.findByPk(req.session.pantryId,{
             include:[{model:Request}]
         });
+        console.log(results)
         const pantryData = results.dataValues;
         console.log(pantryData)
         res.json(pantryData)

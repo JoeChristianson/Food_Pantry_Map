@@ -1,4 +1,5 @@
 const regForm = $(".register-form");
+let checker;
 
 regForm.on('submit',(e)=>{
   e.preventDefault();
@@ -35,9 +36,13 @@ const loginFormHandler = async (event) => {
     const pantryName = document.querySelector("#pantry-name-register").value.trim();
     const pantryAddress = document.querySelector("#pantry-address-register").value.trim();
     const pantryCity = document.querySelector("#pantry-city-register").value.trim();
-    const pantryLatitude = document.querySelector("#pantry-latitude-register").value.trim();
-    const pantryLongitude = document.querySelector("#pantry-longitude-register").value.trim();
     const pantryPhone = document.querySelector("#pantry-phone-register").value.trim();
+    let response = await fetch(`http://api.positionstack.com/v1/forward?access_key=a9a0b36a1e6914857bf1eb84c2d3543c&query=${pantryAddress},${pantryCity}`);
+    const results = await response.json()
+    checker = results;
+    const pantryLatitude = results.data[0].latitude;
+    const pantryLongitude = results.data[0].longitude;
+    console.log(pantryLatitude)
     if (username && email && password) {
       const response = await fetch('/api/user', {
         method: 'POST',
