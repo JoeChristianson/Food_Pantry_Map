@@ -1,9 +1,12 @@
 const router = require('express').Router()
-const {Pantry} = require("../../models")
+const {Pantry,Request} = require("../../models")
 
+// This gets the logged in users pantry data
 router.get("/", async (req,res) => {
     try{
-        const results = await Pantry.findByPk(req.session.pantryId);
+        const results = await Pantry.findByPk(req.session.pantryId,{
+            include:[{model:Request}]
+        });
         const pantryData = results.dataValues;
         console.log(pantryData)
         res.json(pantryData)
@@ -14,10 +17,12 @@ router.get("/", async (req,res) => {
 
 router.get("/all",async(req,res)=>{
     try{
-        const results = await Pantry.findAll();
+        const results = await Pantry.findAll({
+            include:[{model:Request}]
+        });
         res.json(results)
     }catch(err){
-        res.status(500).json({message:'bad request'})
+        res.status(500).json({message:'bad request1'})
     }
 })
 
