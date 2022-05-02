@@ -19,6 +19,10 @@ Request.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        open: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
         pantry_id: {
             type: DataTypes.INTEGER,
             references: {
