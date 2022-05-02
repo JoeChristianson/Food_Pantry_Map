@@ -15,8 +15,8 @@ Request.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        quantity: {
-            type: DataTypes.INTEGER,
+        amount: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
         pantry_id: {
