@@ -19,3 +19,7 @@ const pantryData = [
         contact_phone: '612-321-7654'
     }
 ]
+
+const seedPantry = () => Pantry.bulkCreate(pantryData);
+
+module.exports = seedPantry;
