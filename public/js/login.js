@@ -32,10 +32,16 @@ const loginFormHandler = async (event) => {
     const username = document.querySelector('#username-register').value.trim();
     const email = document.querySelector('#email-register').value.trim();
     const password = document.querySelector('#password-register').value.trim();
+    const pantryName = document.querySelector("#pantry-name-register").value.trim();
+    const pantryAddress = document.querySelector("#pantry-address-register").value.trim();
+    const pantryCity = document.querySelector("#pantry-city-register").value.trim();
+    const pantryLatitude = document.querySelector("#pantry-latitude-register").value.trim();
+    const pantryLongitude = document.querySelector("#pantry-longitude-register").value.trim();
+    const pantryPhone = document.querySelector("#pantry-phone-register").value.trim();
     if (username && email && password) {
       const response = await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({ userName:username, email, password }),
+        body: JSON.stringify({ userName:username, email, password,pantry_name:pantryName,street_address:pantryAddress,city:pantryCity,latitude:pantryLatitude,longitude:pantryLongitude,contact_phone:pantryPhone }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -43,6 +49,7 @@ const loginFormHandler = async (event) => {
         console.log(response.body)
         // document.location.replace('/a');
       } else {
+        console.log(response)
         alert('Failed to sign up.');
       }
     }
