@@ -9,11 +9,21 @@
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Pantry</title>
   </head>
   <body>
     <header>
+      <h1>Welcome to the Food Shelf Database!</h1>
     </header>
+    <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+    </nav>
     <main>
     {{{body}}}
     </main>
