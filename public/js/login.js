@@ -47,6 +47,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         console.log(response.body)
+        location.reload();
         // document.location.replace('/a');
       } else {
         console.log(response)
