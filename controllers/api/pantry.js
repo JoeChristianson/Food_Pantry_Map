@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {Pantry} = require("../../models")
 
+// This gets the logged in users pantry data
 router.get("/", async (req,res) => {
     try{
         const results = await Pantry.findByPk(req.session.pantryId);
