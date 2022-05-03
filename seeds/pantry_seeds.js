@@ -19,6 +19,15 @@ const pantryData = [
         longitude: -93.2620452,
         contact_phone: '612-321-7654',
         user_id: 2,
+    },
+    {
+        pantry_name: 'North Memorial Health Hospital',
+        street_address: '456 Health Way',
+        city: 'Minneapolis',
+        latitude: 45.017007,
+        longitude: -93.32284,
+        contact_phone: '612-777-4444',
+        user_id: 3,
     }
 ]
 
