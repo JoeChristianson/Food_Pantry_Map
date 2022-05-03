@@ -5,3 +5,14 @@
     width: 100%;
     /* The width is the width of the web page */
   }
+
+#pantry {
+  color:darkgreen;
+}
+
+#address {
+  color:cornflowerblue;
+}
+#product {
+  color:crimson;
+}

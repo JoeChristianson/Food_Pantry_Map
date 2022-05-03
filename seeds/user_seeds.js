@@ -11,6 +11,11 @@ const userData = [
         user_name: 'HCMC',
         email: 'HCMC@gmail.com',
         password: 'test321',
+    },
+    {
+        user_name: 'North Memorial Health Hospital',
+        email: 'NMHH@gmail.com',
+        password: 'test231',
     }
 ]
 
