@@ -4,7 +4,7 @@ const city = document.querySelector("#city")
 
 
 const getPantryData = async ()=>{
-    const response = await fetch('api/pantry/all');
+    const response = await fetch('api/pantry');
     console.log(response)
     const data = await response.json()
     console.log(data)
