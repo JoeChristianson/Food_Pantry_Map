@@ -5,8 +5,9 @@ const {Pantry,Request} = require("../../models")
 router.get("/", async (req,res) => {
     try{
         const results = await Pantry.findByPk(req.session.pantryId,{
-            include:[{model:Request}]
+            include:[{model:Request, where: {open: true},}]
         });
+        console.log(results);
         const pantryData = results.dataValues;
         console.log(pantryData)
         res.json(pantryData)
@@ -18,8 +19,9 @@ router.get("/", async (req,res) => {
 router.get("/all",async(req,res)=>{
     try{
         const results = await Pantry.findAll({
-            include:[{model:Request}]
+            include:[{model:Request, where: {open: true},}]
         });
+        console.log(results);
         res.json(results)
     }catch(err){
         res.status(500).json({message:'bad request1'})
