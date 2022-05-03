@@ -14,8 +14,26 @@ const requestData = [
         open: true,
     },
     {
+        product_name: 'Apple Juice',
+        amount: '8 packs',
+        pantry_id: 1,
+        open: true,
+    },
+    {
+        product_name: 'Orange Juice',
+        amount: '10 packs',
+        pantry_id: 1,
+        open: true,
+    },
+    {
         product_name: 'Sugar',
         amount: '15 packs',
+        pantry_id: 2,
+        open: true,
+    },
+    {
+        product_name: 'Salt',
+        amount: '9 cans',
         pantry_id: 2,
         open: true,
     },

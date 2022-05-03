@@ -18,11 +18,11 @@ const initMap = async () => {
       lat: data[i].latitude,
       lng: data[i].longitude
       }
-
+      const needsList = listNeeds(data[i].requests)
       const title = '<h5 id = "pantry">' + data[i].pantry_name + "</h5>"
       const address = '<h6 id = "address">' + data[i].street_address + "</h6>"
-      const needs = '<div id ="content">' + "</div>" + "This location is currently in need of: " + '<h6 id = "product">' +
-                    data[i].requests[0].product_name + "</h6>"
+      const needs = '<div id ="content">' + "This location is currently in need of: " + "</div>"  + '<h6 id = "product">' +
+                    needsList + "</h6>"
       var stopContent = [position, title, address, needs]
       // console.log(stopContent)
       foodStops.push(stopContent);
@@ -142,3 +142,8 @@ const initMap = async () => {
 
 initMap();
 
+const listNeeds = (list) => {
+  const needsArray = list.map(need => `<br> ${need.product_name}: ${need.amount} `)
+  console.log(needsArray);
+  return needsArray;
+}
