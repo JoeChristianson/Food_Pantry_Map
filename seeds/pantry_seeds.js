@@ -28,7 +28,43 @@ const pantryData = [
         longitude: -93.32284,
         contact_phone: '612-777-4444',
         user_id: 3,
-    }
+    },
+    {
+        pantry_name: 'Groveland Emergency Food Shelf',
+        street_address: '1900 Nicollet Ave',
+        city: 'Minneapolis',
+        latitude: 44.96382,
+        longitude: -93.27903,
+        contact_phone: '612-871-0277',
+        user_id: 4,
+    },
+    {
+        pantry_name: 'CES Food Shelf',
+        street_address: '1900 11th Ave S',
+        city: 'Minneapolis',
+        latitude: 44.96364,
+        longitude: -93.25839,
+        contact_phone: '612-870-1125',
+        user_id: 5,
+    },
+    {
+        pantry_name: 'Joyce Uptown Food Shelf',
+        street_address: '3041 Fremont Ave',
+        city: 'Minneapolis',
+        latitude: 44.946808,
+        longitude: -93.295584,
+        contact_phone: '612-825-4431',
+        user_id: 6,
+    },
+    {
+        pantry_name: 'The Aliveness Project',
+        street_address: '3808 Nicollet Ave',
+        city: 'Minneapolis',
+        latitude: 44.933787,
+        longitude: -93.278214,
+        contact_phone: '612-824-5433',
+        user_id: 7,
+    },
 ]
 
 const seedPantry = () => Pantry.bulkCreate(pantryData);
