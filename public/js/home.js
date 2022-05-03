@@ -1,6 +1,6 @@
 // Initialize and add the map
 
-const initMap = async () => {
+const initMap = async (query) => {
     // The location of Uluru
     const minneapolis = { lat: 44.986656, lng: -93.258133 };
     // const uOfMN = {lat: 44.971829446, lng: -93.233832398}
@@ -10,7 +10,13 @@ const initMap = async () => {
       center: minneapolis,
     });
       const foodStops = []
-      const response = await fetch('api/pantry/all');
+      let response;
+      if (!query){
+        response = await fetch('api/pantry/all');
+      }
+      else{
+        response = await fetch("api/pantry/search/"+query)
+      }
       const data = await response.json()
       console.log(data)
       for (var i = 0; i < data.length; i++){
@@ -147,3 +153,8 @@ const listNeeds = (list) => {
   console.log(needsArray);
   return needsArray;
 }
+
+document.querySelector("#searchBtn").addEventListener("click",(event)=>{
+  const searchTerm = document.querySelector("#searchBar").value
+  initMap(searchTerm)
+})
