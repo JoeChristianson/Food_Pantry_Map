@@ -28,7 +28,7 @@ const loginFormHandler = async (event) => {
       }
     }
   };
-  
+
   const signupFormHandler = async () => {
     const username = document.querySelector('#username-register').value.trim();
     const email = document.querySelector('#email-register').value.trim();
@@ -37,11 +37,12 @@ const loginFormHandler = async (event) => {
     const pantryAddress = document.querySelector("#pantry-address-register").value.trim();
     const pantryCity = document.querySelector("#pantry-city-register").value.trim();
     const pantryPhone = document.querySelector("#pantry-phone-register").value.trim();
-    let response = await fetch(`http://api.positionstack.com/v1/forward?access_key=a9a0b36a1e6914857bf1eb84c2d3543c&query=${pantryAddress},${pantryCity}`);
-    const results = await response.json()
-    checker = results;
-    const pantryLatitude = results.data[0].latitude;
-    const pantryLongitude = results.data[0].longitude;
+    let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${pantryAddress},+${pantryCity}&key=AIzaSyCD4adZgZWDQxIUdGKvJcB8ArE42C-wegE`);
+    const result = await response.json()
+    checker = result;
+    console.log(result)
+    const pantryLatitude = result.results[0].geometry.location.lat;
+    const pantryLongitude = result.results[0].geometry.location.lng;
     console.log(pantryLatitude)
     if (username && email && password) {
       const response = await fetch('/api/user', {
