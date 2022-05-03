@@ -27,24 +27,20 @@ const populateInfo = (data)=>{
 
 const addItem = (reqItem) => {
     const listItem = document.createElement("li");
-    console.log(reqItem.amount);
     listItem.innerHTML = `Item: ${reqItem.product_name} - Requested Quantity:  <input type="text" id="amount-${reqItem.id}" name="request_amount" placeholder= "${reqItem.amount}"> <button data-id = ${reqItem.id} class="update" type ="submit"> Update </button> <button class="delete" type= "submit"> Delete </button>`;
     pantryReq.append(listItem);
 } 
 
 
 const updateRequest = async (event) => {
-    console.log($(event.target).attr("data-id"));
     const dataID = $(event.target).attr("data-id");
     const newAmount = document.querySelector(`#amount-${dataID}`).value.trim();
-    console.log(newAmount);
     const response = await fetch(`api/request/${dataID}`,{
         method: 'PUT',
         body: JSON.stringify({amount: newAmount}),
         headers: { 'Content-Type': 'application/json' },
     })
     if (response.ok) {
-        console.log(response.body);
         showUpdatedReq(dataID)
     }else{
         console.log("could not update");
@@ -52,13 +48,13 @@ const updateRequest = async (event) => {
 }
 
 const showUpdatedReq = async (reqID) => {
-    console.log(`update this id: ${reqID}`);
     const response = await fetch('api/pantry');
     const data = await response.json();
     data.requests.forEach(element => {
-        if (element.id === reqID){
-            document.querySelector(`#amount-${reqID}`).attr("placeholder", `${element.amount}`)
-            document.querySelector(`#amount-${reqID}`).value = '';
+        if (element.id == reqID){
+            const amount = document.querySelector(`#amount-${reqID}`)
+            amount.placeholder = element.amount;
+            amount.value = '';
         }
     });
 }
