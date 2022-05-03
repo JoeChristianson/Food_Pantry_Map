@@ -18,6 +18,12 @@ const requestData = [
         amount: '15 packs',
         pantry_id: 2,
         open: true,
+    },
+    {
+        product_name: 'flour',
+        amount: '4 packs',
+        pantry_id: 3,
+        open: true,
     }
 ]
 

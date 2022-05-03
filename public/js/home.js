@@ -18,10 +18,11 @@ const initMap = async () => {
       lat: data[i].latitude,
       lng: data[i].longitude
       }
-      const title = data[i].pantry_name
-
-      const needs = data[i].requests[0].product_name
-      var stopContent = [position, title, needs]
+      const title = '<h5 id = "pantry">' + data[i].pantry_name + "</h5>"
+      const address = '<h6 id = "address">' + data[i].street_address + "</h6>"
+      const needs = '<div id ="content">' + "</div>" + "This location is currently in need of: " + '<h6 id = "product">' +
+                    data[i].requests[0].product_name + "</h6>"
+      var stopContent = [position, title, address, needs]
       // console.log(stopContent)
       foodStops.push(stopContent);
       console.log(foodStops)
@@ -61,12 +62,12 @@ const initMap = async () => {
     const infoWindow = new google.maps.InfoWindow();
   
     // Create the markers.
-    foodStops.forEach(([position, title, needs], i) => {
+    foodStops.forEach(([position, title, address, needs], i) => {
       const marker = new google.maps.Marker({
         position,
         map,
-        title: `${i + 1}. ${title}, In need of: ${needs}`,
-        
+        title: `${title} ${address} ${needs}`,
+         
         // label: `${i + 1}`,
         optimized: false,
   
