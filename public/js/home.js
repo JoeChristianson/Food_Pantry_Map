@@ -1,4 +1,5 @@
 // Initialize and add the map
+
 const initMap = async () => {
     // The location of Uluru
     const minneapolis = { lat: 44.986656, lng: -93.258133 };
@@ -8,16 +9,28 @@ const initMap = async () => {
       zoom: 12,
       center: minneapolis,
     });
-    const foodStops = []
-    const getPantryData = async ()=>{
+      const foodStops = []
       const response = await fetch('api/pantry/all');
-      console.log(response)
       const data = await response.json()
       console.log(data)
-      const latitude = "lat:" + data.latitude;
-      const longitude = "lng:" + data.longitude;
-  }
-  getPantryData();
+      for (var i = 0; i < data.length; i++){
+      const position = {
+      lat: data[i].latitude,
+      lng: data[i].longitude
+      }
+      const title = data[i].pantry_name
+
+      const needs = data[i].requests[0].product_name
+      var stopContent = [position, title, needs]
+      // console.log(stopContent)
+      foodStops.push(stopContent);
+      console.log(foodStops)
+      }
+
+
+
+  
+
     // const foodStops = [
     //   [{ lat: 44.971829446, lng: -93.233832398 }, "UofM", '<div id="content">' +
     //   '<div id="siteNotice">' +
@@ -103,4 +116,27 @@ const initMap = async () => {
   
 }
 
+
+
+// const setUpPlaces = async () => {
+//   const response = await fetch('api/pantry/all');
+      
+//   const data = await response.json()
+  
+
+//   for (var i = 0; i < foodStops.length; i++){
+//     const position = {
+//       latitude: "lat:" + data[i].latitude,
+//       longitude: "lng:" + data[i].longitude
+//     }
+//     const title = data[i].pantry_name
+//     const needs = data[i].product_name
+//     var stopContent = [position, title, needs]
+//     foodStops.push(stopContent);
+//     console.log(foodStops)
+//   }
+// }
+
+
 initMap();
+
