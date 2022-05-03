@@ -6,23 +6,32 @@
     width: 96%;
     /* The width is the width of the web page */
   }
+.header {
+  padding-left: 2%;
+}
+.navBar{
+  padding-left: 1%;
+}
 #homepage-contents {
   display: flex;
   justify-content: center;
 }
 #homepage-contents h3{
-  width: 40%;
+  width: 400px;
   margin-left: 2%;
 
 }
 .search-contents{
   margin-top: 6px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  height: 30px;
 
 }
 #searchBar {
-  width: 40%
+  width: 350px;
+  
 }
 #searchBtn {
   height: auto;
