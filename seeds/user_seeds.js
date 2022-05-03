@@ -13,10 +13,30 @@ const userData = [
         password: 'test321',
     },
     {
-        user_name: 'North Memorial Health Hospital',
-        email: 'NMHH@gmail.com',
+        user_name: 'NMem',
+        email: 'northmem@gmail.com',
+        password: 'test321',
+    },
+    {
+        user_name: 'Groveland',
+        email: 'grove@gmail.com',
         password: 'test231',
-    }
+    },
+    {
+        user_name: 'CES',
+        email: 'CES@gmail.com',
+        password: 'test231',
+    },
+    {
+        user_name: 'juptwp',
+        email: 'joyce@gmail.com',
+        password: 'test231',
+    },
+    {
+        user_name: 'TAPROJ',
+        email: 'thealiveness@gmail.com',
+        password: 'test231',
+    },
 ]
 
 const seedUser = () => User.bulkCreate(userData);
