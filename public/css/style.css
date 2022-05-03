@@ -1,11 +1,32 @@
 /* Set the size of the div element that contains the map */
 #map {
-    height: 400px;
+    margin: 0 2% 0 2%;
+    height: 600px;
     /* The height is 400 pixels */
-    width: 100%;
+    width: 96%;
     /* The width is the width of the web page */
   }
+#homepage-contents {
+  display: flex;
+  justify-content: center;
+}
+#homepage-contents h3{
+  width: 40%;
+  margin-left: 2%;
 
+}
+.search-contents{
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+
+}
+#searchBar {
+  width: 40%
+}
+#searchBtn {
+  height: auto;
+}
 #pantry {
   color:darkgreen;
 }
