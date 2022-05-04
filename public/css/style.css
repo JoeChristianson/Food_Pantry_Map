@@ -154,6 +154,16 @@ input:focus::placeholder {
   color: yellow;
   background-image: linear-gradient(to bottom right, purple, #8962a1)
 }
+.pantryStuff{
+  margin: 2%;
+  display: flex;
+  justify-content: center;
+}
+.pantryCard{
+  margin: 1%;
+  box-shadow: 5px 2px 2px #605a5b;
+  border-radius: 10px 0 10px 0;
+}
 .pantryBtn{
   background-color: rgb(91, 91, 224);
   color: white;
