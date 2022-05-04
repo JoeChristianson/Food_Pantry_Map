@@ -45,7 +45,6 @@ router.get("/closed", async (req,res) => {
         });
         console.log(results);
         // const requestData = results.dataValues;
-        console.log(results)
         res.json(results)
     }catch(err){
         res.status(500).json({message:"bad request"})

@@ -1,6 +1,7 @@
 const pName = document.querySelector("#name")
 const address = document.querySelector("#address")
 const city = document.querySelector("#city")
+const reqListTitle = document.querySelector(".req_list")
 const pantryReq = document.querySelector("#pantry_requests")
 const pantryReqEdit = $("#pantry_requests");
 const supplyPage = $(".supply_list");
@@ -19,10 +20,15 @@ const populateInfo = (data)=>{
     pName.innerHTML = data['pantry_name'];
     address.innerHTML = data['street_address'];
     city.innerHTML = data['city'];
-    data.requests.forEach(element => {
+    if(!data.requests[0]){
+        reqListTitle.innerHTML = "No active request items for this pantry."
+    }else{
+        reqListTitle.innerHTML = "Requested Items: "
+        data.requests.forEach(element => {
         
         addItem(element);
     });
+    }
 }
 
 const addItem = (reqItem) => {
@@ -69,7 +75,6 @@ const removeRequest = async (event) => {
     if (response.ok) {
         console.log(response.body)
         location.reload();
-        // document.location.replace('/a');
       } else {
         console.log(response)
         alert('Failed to sign up.');
