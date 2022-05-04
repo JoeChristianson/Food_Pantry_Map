@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const distance = require("../../util/distance")
 
+
 // This gets the logged in users pantry data
 router.get("/", async (req,res) => {
     try{
@@ -40,6 +41,12 @@ router.get("/search/:item/:latitude/:longitude",async(req,res)=>{
                   }
             }
         })
+        // check if any requests match
+        console.log(item)
+        if (requests.length===0&&item!="all"){
+            res.json(requests);
+            return
+        }
         const set = new Set()
         let pantryIds = requests.map(req=>req.pantry_id);
         pantryIds.forEach(item=>set.add(item))
@@ -50,7 +57,7 @@ router.get("/search/:item/:latitude/:longitude",async(req,res)=>{
                     [Op.or]:pantryIds
                 }
                 },
-                include:{model:Request}
+                include:{model:Request, where: {open: true}, required:false}
         })
         const pantryData = pantries.map(pantry=>pantry.dataValues);
         pantryData.forEach(pantry=>{
