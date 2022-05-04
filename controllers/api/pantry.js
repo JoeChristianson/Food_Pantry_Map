@@ -11,9 +11,7 @@ router.get("/", async (req,res) => {
         const results = await Pantry.findByPk(req.session.pantryId,{
             include:[{model:Request, where: {open: true}, required:false}]
         });
-        console.log(results)
         const pantryData = results.dataValues;
-        console.log(pantryData)
         res.json(pantryData)
     }catch(err){
         res.status(500).json({message:"bad request"})
@@ -59,8 +57,6 @@ router.get("/search/:item/:latitude/:longitude",async(req,res)=>{
             pantry.distance = distance({latitude:pantry.latitude,longitude:pantry.longitude},{latitude:req.params.latitude,longitude:req.params.longitude});
         })
         const sortedPantryData = pantryData.sort((a,b)=>{
-            console.log(b.distance);
-            console.log(a.distance)
             return a.distance-b.distance;
         })
         console.log(sortedPantryData.map(pantry=>pantry.distance))
