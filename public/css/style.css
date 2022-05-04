@@ -113,6 +113,7 @@ input:placeholder-shown {
 input:focus::placeholder {
   color: transparent;
 }
+
 .info{
 
   width: 96%;
@@ -131,19 +132,21 @@ input:focus::placeholder {
   z-index: 10;
 }
 
-.card1{
+#card1{
   color: white;
   background-image: linear-gradient(to bottom right, red, #f46d75) 
 }
-.card2{
+
+#card2{
   color: white;
   background-image: linear-gradient(to bottom right, orange, #ffcb62) 
 }
-.card3{
+
+#card3{
   color: rgb(35, 141, 35);
   background-image: linear-gradient(to bottom right, yellow, #faf3c0)
 }
-.card4{
+#card4{
   color: yellow;
   background-image: linear-gradient(to bottom right, purple, #b494c8)
 }
