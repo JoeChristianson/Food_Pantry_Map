@@ -1,69 +1,86 @@
 <div class="container">
-  <div class="row mt-3">
+    <div class="row mt-3 login-page">
+
+      <div class="card login-card  mb-3" style="max-width: 40rem;">
+        <section class="col">
+
+          <h2 class="login-text">Login</h2>
+
+          <form class="form login-form">
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="email-login">email:</label>
+              <input  class="form-control"  type="text" id="email-login" />
+            </div>
+
+            <div class="input-group  mb-3">
+              <label  class="input-group-text" for="password-login">password:</label>
+              <input  class="form-control"   type="password" id="password-login" />
+            </div>
+    
+            <div class="form-group formBtn">
+              <button class="btn btn-primary" type="submit">login</button>
+            </div>
+          </form>
+
+        </section>
+      </div>
 
 
-<section class="col">
+      <div class="card login-card mb-3" style="max-width: 40rem;">
+        <section class="col">
 
-<h2>Login</h2>
+          <h2 class="login-text">Register</h2>
 
-<form class="form login-form">
-  <div class="input-group  mb-3">
-    <label class="input-group-text" for="email-login">email:</label>
-    <input  class="form-control"  type="text" id="email-login" />
-  </div>
-  <div class="input-group  mb-3">
-    <label  class="input-group-text" for="password-login">password:</label>
-    <input  class="form-control"   type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">login</button>
-  </div>
-</form>
-</section>
+          <form class="form register-form">
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="username-register">User Name:</label>
+              <input class="form-control" type="text" id="username-register" />
+            </div>
+  
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="email-register">Enter email:</label>
+              <input class="form-control" type="text" id="email-register" />
+            </div>
+  
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="password-register">Choose password:</label>
+              <input class="form-control" type="password" id="password-register" />
+            </div>
+    
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="password-confirm">Confirm password:</label>
+              <input class="form-control" type="password" id="password-confirm" />
+            </div>
+  
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="pantry-name-register">Pantry Name:</label>
+              <input class="form-control" type="text" id="pantry-name-register" />
+            </div>
+    
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="pantry-address-register">Street Address:</label>
+              <input class="form-control" type="text" id="pantry-address-register" />
+            </div>
+    
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="pantry-city-register">City and State:</label>
+              <input class="form-control" placeholder="example: Minneapolis, MN" type="text" id="pantry-city-register" />
+            </div>
+          
+            <div class="input-group  mb-3">
+              <label class="input-group-text" for="pantry-phone-register">Contact Phone:</label>
+              <input class="form-control" type="text" id="pantry-phone-register" />
+            </div>
+  
+            <div class="form-group formBtn">
+              <button class="btn btn-primary" type="submit">register</button>
+            </div>
 
-<section class="col">
+          </form>
+        </section>
+      </div>
 
-<h2>Register</h2>
-
-<form class="form register-form">
-      <div class="input-group  mb-3">
-    <label class="input-group-text" for="username-register">User Name:</label>
-    <input class="form-control" type="text" id="username-register" />
-  </div>
-  <div class="input-group  mb-3">
-    <label class="input-group-text" for="email-register">Enter email:</label>
-    <input class="form-control" type="text" id="email-register" />
-  </div>
-  <div class="input-group  mb-3">
-    <label class="input-group-text" for="password-register">Choose password:</label>
-    <input class="form-control" type="password" id="password-register" />
-  </div>
-    <div class="input-group  mb-3">
-    <label class="input-group-text" for="password-confirm">Confirm password:</label>
-    <input class="form-control" type="password" id="password-confirm" />
-  </div>
-  <div class="input-group  mb-3">
-    <label class="input-group-text" for="pantry-name-register">Pantry Name:</label>
-    <input class="form-control" type="text" id="pantry-name-register" />
-  </div>
-    <div class="input-group  mb-3">
-    <label class="input-group-text" for="pantry-address-register">Street Address:</label>
-    <input class="form-control" type="text" id="pantry-address-register" />
-  </div>
-    <div class="input-group  mb-3">
-    <label class="input-group-text" for="pantry-city-register">City and State:</label>
-    <input class="form-control" type="text" id="pantry-city-register" />
-  </div>
-          <div class="input-group  mb-3">
-    <label class="input-group-text" for="pantry-phone-register">Contact Phone:</label>
-    <input class="form-control" type="text" id="pantry-phone-register" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">register</button>
-  </div>
-</form>
-</section>
-  </div>
+    </div>
 </div>
 
 <script src="./js/login.js"></script>
