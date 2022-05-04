@@ -53,8 +53,11 @@ router.get("/search/:item",async(req,res)=>{
                 },
                 include:{model:Request}
         })
-
-        res.json(pantries)
+        const pantryData = pantries.map(pantry=>pantry.dataValues);
+        pantryData.forEach(pantry=>{
+            pantry.distance = 1;
+        })
+        res.json(pantryData)
     }catch(err){
         res.json(err)
     }
