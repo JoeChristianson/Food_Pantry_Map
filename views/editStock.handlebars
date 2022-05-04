@@ -1,31 +1,43 @@
-<h2 id="name">Pantry Name</h2>
+{{!-- <h2 id="name">Pantry Name</h2>
 <h4 id="address">Pantry Address</h4>
-<h4 id="city"></h4>
-<form class="form request-form">
-    <h4>Add A Request</h4>
-  <div class="input-group  mb-3">
-    <label class="input-group-text" for="item_name">Item Name:</label>
-    <input  class="form-control"  type="text" id="item_name" />
-  </div>
-  <div class="input-group  mb-3">
-    <label  class="input-group-text" for="amount">Requested Amount:</label>
-    <input  class="form-control"   type="amount" id="amount" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Submit</button>
-  </div>
-</form>
-</section>
-<div>
-    <h3 class = "closed_requests"> </h3>
-    <div >
-        <ul id = "closed_requests">
+<h4 id="city"></h4> --}}
+<div class="card pantryCard"style="max-width: 50rem;">
+    
+    <form class="form request-form">
+        <h4>Add A Request</h4>
+        <div class="input-group  mb-3">
+            <label class="input-group-text" for="item_name">Item Name:</label>
+            <input  class="form-control"  type="text" id="item_name" />
+        </div>
+
+        <div class="input-group  mb-3">
+            <label  class="input-group-text" for="amount">Requested Amount:</label>
+            <input  class="form-control"   type="amount" id="amount" />
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+<div class="card pantryCard"style="max-width: 50rem;">
+    
+    <div>
+        <h3 class = "closed_requests"> </h3>
+        <div>
+            <ul id = "closed_requests">
             
-        </ul>
+            </ul>
+        </div>
     </div>
+
+    <div>
+        <button class = "pantry_page pantryBtn" type = "submit">View Supply Requests</button>
+    </div>
+    
 </div>
-<div>
-    <button class = "pantry_page pantryBtn" type = "submit">View Supply Requests</button>
-</div>
+
 
 <script src="./js/stock.js"></script>
