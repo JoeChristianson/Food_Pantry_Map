@@ -3,13 +3,13 @@ const address = document.querySelector("#address")
 const city = document.querySelector("#city")
 const pantryReq = document.querySelector("#pantry_requests")
 const pantryReqEdit = $("#pantry_requests");
+const supplyPage = $(".supply_list");
 
 const getPantryData = async ()=>{
     const response = await fetch('api/pantry');
     console.log(response)
     const data = await response.json()
     console.log(data)
-    console.log(data.requests[0].product_name);
     populateInfo(data)
 }
 
@@ -27,7 +27,7 @@ const populateInfo = (data)=>{
 
 const addItem = (reqItem) => {
     const listItem = document.createElement("li");
-    listItem.innerHTML = `Item: ${reqItem.product_name} - Requested Quantity:  <input type="text" id="amount-${reqItem.id}" name="request_amount" placeholder= "${reqItem.amount}"> <button data-id = ${reqItem.id} class="update" type ="submit"> Update </button> <button class="delete" type= "submit"> Delete </button>`;
+    listItem.innerHTML = `Item: ${reqItem.product_name} - Requested Quantity:  <input type="text" id="amount-${reqItem.id}" name="request_amount" placeholder= "${reqItem.amount}"> <button data-id = ${reqItem.id} class="update" type ="submit"> Update </button> <button data-id=${reqItem.id} class="delete" type= "submit"> Delete </button>`;
     pantryReq.append(listItem);
 } 
 
@@ -59,4 +59,26 @@ const showUpdatedReq = async (reqID) => {
     });
 }
 
+const removeRequest = async (event) => {
+    const dataID = $(event.target).attr("data-id");
+    const response = await fetch(`api/request/${dataID}`,{
+        method: 'PUT',
+        body: JSON.stringify({open: false}),
+        headers: { 'Content-Type': 'application/json' },
+    })
+    if (response.ok) {
+        console.log(response.body)
+        location.reload();
+        // document.location.replace('/a');
+      } else {
+        console.log(response)
+        alert('Failed to sign up.');
+      }
+}
+
 pantryReqEdit.on("click", ".update", updateRequest);
+pantryReqEdit.on("click", ".delete", removeRequest);
+supplyPage.on("click", function(){
+    console.log("next page");
+    document.location.replace('/stocks')
+} );
