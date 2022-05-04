@@ -6,7 +6,9 @@ router.use("/login",loginRoutes)
 router.use("/stocks", stocksRoutes)
 
 router.get("/",(req,res)=>{
-    res.render('homepage')
+    console.log(req); 
+    const local = true;
+    res.render('homepage',{data:{local:local}});
 })
 
 router.get("/pantry",(req,res)=>{
