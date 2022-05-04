@@ -35,11 +35,11 @@ router.put("/:id", async (req,res) => {
     }
 })
 
-router.get("/", async (req,res) => {
+router.get("/closed", async (req,res) => {
     try{
         const results = await Request.findAll({
             where: {
-                open: true,
+                open: false,
                 pantry_id: req.session.pantryId,
             }
         });
