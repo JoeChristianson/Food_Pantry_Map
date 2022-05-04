@@ -13,12 +13,8 @@ const initMap = async (query) => {
     });
       const foodStops = []
       let response;
-      if (!query){
-        response = await fetch('api/pantry/all');
-      }
-      else{
         response = await fetch(`api/pantry/search/${query}/${currentLocation.lat}/${currentLocation.long}`)
-      }
+
       const data = await response.json()
       console.log(data)
       for (var i = 0; i < data.length; i++){
