@@ -1,10 +1,25 @@
 <h2 id="name">Pantry Name</h2>
 <h4 id="address">Pantry Address</h4>
 <h4 id="city"></h4>
+<form class="form request-form">
+    <h4>Add A Request</h4>
+  <div class="input-group  mb-3">
+    <label class="input-group-text" for="item_name">Item Name:</label>
+    <input  class="form-control"  type="text" id="item_name" />
+  </div>
+  <div class="input-group  mb-3">
+    <label  class="input-group-text" for="amount">Requested Amount:</label>
+    <input  class="form-control"   type="amount" id="amount" />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>
+</section>
 <div>
-    <h3>Currently In Need Of:</h3>
+    <h3 class = "closed_requests"> </h3>
     <div >
-        <ul id = "pantry_requests">
+        <ul id = "closed_requests">
             
         </ul>
     </div>
