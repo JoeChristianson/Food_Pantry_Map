@@ -37,7 +37,7 @@ const loginFormHandler = async (event) => {
     const pantryAddress = document.querySelector("#pantry-address-register").value.trim();
     const pantryCity = document.querySelector("#pantry-city-register").value.trim();
     const pantryPhone = document.querySelector("#pantry-phone-register").value.trim();
-    let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${pantryAddress},+${pantryCity}&key=AIzaSyCD4adZgZWDQxIUdGKvJcB8ArE42C-wegE`);
+    let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${pantryAddress},+${pantryCity}&key=AIzaSyBBdG5RsjMRgKRndDu3SAs1ri_ZtpDyx74`);
     const result = await response.json()
     checker = result;
     console.log(result)
