@@ -77,6 +77,7 @@ const initMap = async (query) => {
          
         // label: `${i + 1}`,
         optimized: false,
+        id: 1,
   
       });
   
@@ -158,3 +159,10 @@ document.querySelector("#searchBtn").addEventListener("click",(event)=>{
   const searchTerm = document.querySelector("#searchBar").value
   initMap(searchTerm)
 })
+
+function changeToRedColor(){
+  document.getElementById("searchBtn").style.backgroundColor = "red";
+}
+function changeToBlueColor(){
+  document.getElementById("searchBtn").style.backgroundColor = "blue";
+}
