@@ -1,22 +1,20 @@
 // Initialize and add the map
 
 const initMap = async (query) => {
-    // The location of Uluru
-    const minneapolis = { lat: 44.986656, lng: -93.258133 };
+  let currentLocation = await getCoords();
+  currentLocation?console.log(currentLocation):currentLocation = {lat:44.971829446,long: -93.233832398}
+
+    const center = { lat: currentLocation.lat, lng: currentLocation.long };
     // const uOfMN = {lat: 44.971829446, lng: -93.233832398}
     // The map, centered at Minneapolis
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 12,
-      center: minneapolis,
+      center: center,
     });
       const foodStops = []
       let response;
-      if (!query){
-        response = await fetch('api/pantry/all');
-      }
-      else{
-        response = await fetch("api/pantry/search/"+query)
-      }
+        response = await fetch(`api/pantry/search/${query}/${currentLocation.lat}/${currentLocation.long}`)
+
       const data = await response.json()
       console.log(data)
       for (var i = 0; i < data.length; i++){
@@ -32,7 +30,6 @@ const initMap = async (query) => {
       var stopContent = [position, title, address, needs]
       // console.log(stopContent)
       foodStops.push(stopContent);
-      console.log(foodStops)
       }
 
 
@@ -151,7 +148,6 @@ initMap();
 
 const listNeeds = (list) => {
   const needsArray = list.map(need => `<br> ${need.product_name}: ${need.amount} `)
-  console.log(needsArray);
   return needsArray;
 }
 
@@ -166,3 +162,14 @@ function changeToRedColor(){
 function changeToBlueColor(){
   document.getElementById("searchBtn").style.backgroundColor = "blue";
 }
+
+async function getCoords(){
+  const pos = await new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+
+  return {
+    long: pos.coords.longitude,
+    lat: pos.coords.latitude,
+  };
+};

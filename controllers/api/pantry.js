@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {Pantry,Request} = require("../../models")
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+const distance = require("../../util/distance")
 
 // This gets the logged in users pantry data
 router.get("/", async (req,res) => {
@@ -30,7 +31,7 @@ router.get("/all",async(req,res)=>{
     }
 })
 
-router.get("/search/:item",async(req,res)=>{
+router.get("/search/:item/:latitude/:longitude",async(req,res)=>{
     try{
         const item = req.params.item;
         console.log(item)
@@ -55,9 +56,15 @@ router.get("/search/:item",async(req,res)=>{
         })
         const pantryData = pantries.map(pantry=>pantry.dataValues);
         pantryData.forEach(pantry=>{
-            pantry.distance = 1;
+            pantry.distance = distance({latitude:pantry.latitude,longitude:pantry.longitude},{latitude:req.params.latitude,longitude:req.params.longitude});
         })
-        res.json(pantryData)
+        const sortedPantryData = pantryData.sort((a,b)=>{
+            console.log(b.distance);
+            console.log(a.distance)
+            return a.distance-b.distance;
+        })
+        console.log(sortedPantryData.map(pantry=>pantry.distance))
+        res.json(sortedPantryData)
     }catch(err){
         res.json(err)
     }
