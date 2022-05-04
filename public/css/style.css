@@ -1,7 +1,7 @@
 /* Set the size of the div element that contains the map */
 #map {
-    margin: 0 2% 0 2%;
-    height: 600px;
+    margin: 0 2% 1% 2%;
+    height: 400px;
     /* The height is 400 pixels */
     width: 96%;
     /* The width is the width of the web page */
@@ -86,13 +86,13 @@
   margin-bottom: 10px;
 }
 .login-card{
-  background-image: linear-gradient(to bottom right, #008C76FF, #9ED9CCFF) ;
+  /* background-image: linear-gradient(to bottom right, #008C76FF, #9ED9CCFF) ; */
   box-shadow: 5px 2px 2px #605a5b;
   border-radius: 10px 0 10px 0;
 }
 
 .login-text{
-  color: white;
+  color: black;
 }
 .formBtn{
   float: right;
@@ -112,4 +112,38 @@ input:placeholder-shown {
 }
 input:focus::placeholder {
   color: transparent;
+}
+.info{
+
+  width: 96%;
+
+  display: flex;
+  justify-content:center;
+  margin: 0 2% 1% 2%;
+}
+.infoCard{
+
+
+  margin: 0 .3px 0 .3px;
+}
+.infoCard:hover{
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.card1{
+  color: white;
+  background-image: linear-gradient(to bottom right, red, #f46d75) 
+}
+.card2{
+  color: white;
+  background-image: linear-gradient(to bottom right, orange, #ffcb62) 
+}
+.card3{
+  color: rgb(35, 141, 35);
+  background-image: linear-gradient(to bottom right, yellow, #faf3c0)
+}
+.card4{
+  color: yellow;
+  background-image: linear-gradient(to bottom right, purple, #b494c8)
 }
