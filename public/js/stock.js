@@ -85,7 +85,7 @@ const createRequest = async (event) => {
 
 
 pantryPage.on("click", function(){
-    console.log("next page");
+    //console.log("next page");
     document.location.replace('/pantry')
 });
 
