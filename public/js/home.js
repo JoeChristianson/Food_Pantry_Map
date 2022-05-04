@@ -11,7 +11,10 @@ const initMap = async (query) => {
       zoom: 12,
       center: center,
     });
-      const foodStops = []
+      const foodStops = [];
+      if (!query){
+        query="all"
+      }
       let response;
         response = await fetch(`api/pantry/search/${query}/${currentLocation.lat}/${currentLocation.long}`)
 
