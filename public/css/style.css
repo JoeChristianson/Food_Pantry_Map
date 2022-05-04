@@ -6,12 +6,51 @@
     width: 96%;
     /* The width is the width of the web page */
   }
-.header {
-  padding-left: 2%;
+.jumbo {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #008C76FF, #9ED9CCFF) ;
+  
+  height: 100px;
+}
+.foodie{
+  text-decoration: none;
+  font-size: 40;
+  color: white;
+  font-family: 'Goldman', cursive;
   
 }
+.topia0{
+  color: white;
+}
+.topia{
+  color: red;
+  font-family: 'Anton', sans-serif;
+}
+.topia2{
+  color: yellow;
+  font-family: 'Anton', sans-serif;
+}
+.topia3{
+  color: orange;
+  font-family: 'Anton', sans-serif;
+}
+.topia4{
+  color: purple;
+  font-family: 'Anton', sans-serif;
+}
+.topia5{
+  color: blue;
+  font-family: 'Anton', sans-serif;
+}
 .navBar{
+
   padding-left: 1%;
+  background-image: linear-gradient(to bottom right, #008C76FF, #9ED9CCFF);
+}
+.nav-text{
+  color: rgb(46, 54, 219);
+  font-weight: bolder;
 }
 #homepage-contents {
   display: flex;
@@ -22,20 +61,41 @@
   margin-left: 2%;
 
 }
+
 .search-contents{
   margin-top: 6px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   height: 30px;
+  width: 100%;
 
 }
 #searchBar {
-  width: 350px;
+  width: 300px;
   
 }
-#searchBtn {
-  height: auto;
+.inputs{
+  width: 500px;
+}
+.login-page {
+  display: flex;
+  justify-content: space-between;
+}
+.login-page section{
+  margin-bottom: 10px;
+}
+.login-card{
+  background-image: linear-gradient(to bottom right, #008C76FF, #9ED9CCFF) ;
+  box-shadow: 5px 2px 2px #605a5b;
+  border-radius: 10px 0 10px 0;
+}
+
+.login-text{
+  color: white;
+}
+.formBtn{
+  float: right;
 }
 #pantry {
   color:darkgreen;
@@ -46,4 +106,10 @@
 }
 #product {
   color:crimson;
+}
+input:placeholder-shown {
+  font-style: italic;
+}
+input:focus::placeholder {
+  color: transparent;
 }
