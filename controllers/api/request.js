@@ -35,17 +35,16 @@ router.put("/:id", async (req,res) => {
     }
 })
 
-router.get("/", async (req,res) => {
+router.get("/closed", async (req,res) => {
     try{
         const results = await Request.findAll({
             where: {
-                open: true,
+                open: false,
                 pantry_id: req.session.pantryId,
             }
         });
         console.log(results);
         // const requestData = results.dataValues;
-        console.log(results)
         res.json(results)
     }catch(err){
         res.status(500).json({message:"bad request"})
