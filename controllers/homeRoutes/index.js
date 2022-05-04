@@ -6,12 +6,16 @@ router.use("/login",loginRoutes)
 router.use("/stocks", stocksRoutes)
 
 router.get("/",(req,res)=>{
-    console.log(req); 
     const local = true;
-    res.render('homepage',{data:{local:local}});
+    res.render('homepage',{loggedIn:req.session.loggedIn});
 })
 
 router.get("/pantry",(req,res)=>{
-    res.render('pantry')
+    if (req.session.loggedIn){
+        res.render('pantry',{loggedIn:req.session.loggedIn})
+    }
+    else{
+        res.redirect("/login")
+    }
 });
 module.exports = router;
