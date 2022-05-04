@@ -1,4 +1,5 @@
 const distance = (pantry,location) =>{
+    console.log("in it")
     const pLat = pantry.latitude;
     const pLong = pantry.longitude;
     const cLat = location.latitude;
