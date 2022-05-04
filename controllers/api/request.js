@@ -43,9 +43,10 @@ router.get("/", async (req,res) => {
                 pantry_id: req.session.pantryId,
             }
         });
-        const requestData = results.dataValues;
-        console.log(requestData)
-        res.json(requestData)
+        console.log(results);
+        // const requestData = results.dataValues;
+        console.log(results)
+        res.json(results)
     }catch(err){
         res.status(500).json({message:"bad request"})
     }

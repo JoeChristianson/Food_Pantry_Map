@@ -8,7 +8,7 @@ router.get("/", async (req,res) => {
     try{
         console.log(req.session.pantryId)
         const results = await Pantry.findByPk(req.session.pantryId,{
-            include:[{model:Request}]
+            include:[{model:Request, where: {open: true}, required:false}]
         });
         console.log(results)
         const pantryData = results.dataValues;
@@ -22,7 +22,7 @@ router.get("/", async (req,res) => {
 router.get("/all",async(req,res)=>{
     try{
         const results = await Pantry.findAll({
-            include:[{model:Request}]
+            include:[{model:Request, where: {open: true}, required:false}]
         });
         res.json(results)
     }catch(err){
