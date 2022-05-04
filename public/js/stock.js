@@ -64,7 +64,7 @@ const createRequest = async (event) => {
             document.querySelector('#item_name').value = '';
             document.querySelector('#amount').value = '';
         } else {
-            addedMessage.innerHTML = "Failed to create request. Verify both fields are filled in.";
+            addedMessage.innerHTML = "Failed to create request.";
         }
     }else{
         addedMessage.innerHTML = "Failed to create request. Verify both fields are filled in.";
