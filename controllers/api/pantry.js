@@ -58,7 +58,13 @@ router.get("/search/:item/:latitude/:longitude",async(req,res)=>{
         pantryData.forEach(pantry=>{
             pantry.distance = distance({latitude:pantry.latitude,longitude:pantry.longitude},{latitude:req.params.latitude,longitude:req.params.longitude});
         })
-        res.json(pantryData)
+        const sortedPantryData = pantryData.sort((a,b)=>{
+            console.log(b.distance);
+            console.log(a.distance)
+            return a.distance-b.distance;
+        })
+        console.log(sortedPantryData.map(pantry=>pantry.distance))
+        res.json(sortedPantryData)
     }catch(err){
         res.json(err)
     }
