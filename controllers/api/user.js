@@ -5,7 +5,6 @@ const {User,Pantry} = require("../../models")
 // this is registering
 router.post("/",async (req,res)=>{
     try{
-        console.log(req.body)
         const newUser = await User.create({
             user_name:req.body.userName,
             email:req.body.email,
@@ -20,7 +19,6 @@ router.post("/",async (req,res)=>{
             contact_phone:req.body.contact_phone,
             user_id:newUser.id
         })
-        console.log(typeof newPantry)
         res.json({newUser,newPantry})
     }catch(err){
         res.status(500).json(err)
@@ -56,14 +54,17 @@ router.post('/login',async (req,res)=>{
             res.status(200).json({user:userData,message: 'You are now logged in'})
         })
     }catch(err){
-        console.log(err);
         res.status(500).json(err)
     }
 })
 
 router.post("/logout",(req,res)=>{
-    req.session.loggedIn = false;
-    res.status(200).json({message:'You are now logged out.'})
+    console.log("logging out")
+    req.session.save(async ()=>{
+        req.session.loggedIn = false;
+        console.log(req.session)
+        res.status(200).json({message:'You are now logged out.'})
+    })
 })
 
 module.exports = router;
