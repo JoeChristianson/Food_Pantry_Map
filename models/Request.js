@@ -18,6 +18,9 @@ Request.init(
         amount: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                notEmpty: true,
+            },
         },
         open: {
             type: DataTypes.BOOLEAN,
