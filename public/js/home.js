@@ -11,7 +11,7 @@ const initMap = async (query) => {
 
     // The map, centered at user location.
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
+      zoom: 10,
       styles: [
         {
           "featureType": "poi",
@@ -51,7 +51,7 @@ const initMap = async (query) => {
 
 
     // Create the markers.
-    
+    document.querySelector("#pantry-list").innerHTML = ""
     foodStops.forEach(([position, title, address, needs,distance], i) => {
       const marker = new google.maps.Marker({
         position,
