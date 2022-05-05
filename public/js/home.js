@@ -1,4 +1,5 @@
-var image = "https://img.icons8.com/officexs/32/cherry.png"
+var image = "https://img.icons8.com/officexs/32/cherry.png";
+const list = $("#pantry-list")
 
 // Initialize and add the map
 
@@ -40,7 +41,7 @@ const initMap = async (query) => {
       const address = '<h6 id = "address">' + data[i].street_address + "</h6>"
       const needs = '<div id ="content">' + "This location is currently in need of: " + "</div>"  + '<h6 id = "product">' +
                     needsList + "</h6>"
-      var stopContent = [position, title, address, needs]
+      var stopContent = [position, title, address, needs,data[i].distance]
 
       foodStops.push(stopContent);
       }
@@ -51,7 +52,7 @@ const initMap = async (query) => {
 
     // Create the markers.
     
-    foodStops.forEach(([position, title, address, needs], i) => {
+    foodStops.forEach(([position, title, address, needs,distance], i) => {
       const marker = new google.maps.Marker({
         position,
         map,
@@ -72,7 +73,14 @@ const initMap = async (query) => {
         infoWindow.open(marker.getMap(), marker);
       });
 
-
+      const listItem = $("<div>");
+      listItem.addClass("card")
+      listItem.addClass("list-card")
+      listItem.html(`<h3>${title} </h3>
+      <h5>${Math.round(distance*10)/10} miles</h5>
+      <h5>${address}</h5>
+      <p>${needs}</p>`);
+      list.append(listItem)
     });
 
 
