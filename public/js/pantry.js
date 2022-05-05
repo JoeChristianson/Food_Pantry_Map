@@ -3,7 +3,7 @@ const address = document.querySelector("#address")
 const city = document.querySelector("#city")
 const reqListTitle = document.querySelector(".req_list")
 const pantryReq = document.querySelector("#pantry_requests")
-const delMessage = document.querySelector(".deleteMessage");
+const editDelMessage = document.querySelector(".editDeleteMessage");
 const pantryReqEdit = $("#pantry_requests");
 const supplyPage = $(".supply_list");
 var timer;
@@ -50,8 +50,12 @@ const updateRequest = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     })
     if (response.ok) {
-        showUpdatedReq(dataID)
+        editDelMessage.innerHTML = 'Requested amount successfully updated.';
+        showUpdatedReq(dataID);
+        startTimer();
     }else{
+        editDelMessage.innerHTML = 'ERROR: cannot update when amount field is empty.'
+        startTimer();
         console.log("could not update");
     }
 }
@@ -77,7 +81,7 @@ const removeRequest = async (event) => {
     })
     if (response.ok) {
         console.log(response.body)
-        delMessage.innerHTML = 'Request successfully removed.';
+        editDelMessage.innerHTML = 'Request successfully removed.';
         getPantryData();
         startTimer();
       } else {
@@ -92,7 +96,7 @@ const startTimer = () => {
         timerCount --;
         console.log(timerCount);
         if (timerCount <= 0){
-            delMessage.innerHTML = '';
+            editDelMessage.innerHTML = '';
             clearInterval(timer);
         }
     }, 1000);
