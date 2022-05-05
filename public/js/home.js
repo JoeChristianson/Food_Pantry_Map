@@ -11,6 +11,14 @@ const initMap = async (query) => {
     // The map, centered at user location.
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 12,
+      styles: [
+        {
+          "featureType": "poi",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        }
+      ],
       center: center,
     });
       const foodStops = [];
