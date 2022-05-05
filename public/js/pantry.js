@@ -36,7 +36,7 @@ const populateInfo = (data)=>{
 
 const addItem = (reqItem) => {
     const listItem = document.createElement("li");
-    listItem.innerHTML = `<div class = "requestItemList"><span class = "reqPadding" >Item: ${reqItem.product_name} - Requested Quantity:  <input type="text" id="amount-${reqItem.id}" name="request_amount" placeholder= "${reqItem.amount}"></span> <span><button data-id = ${reqItem.id} class="update" type ="submit"> Update </button> <button data-id=${reqItem.id} class="remove" type= "submit"> Remove </button></span></div>`;
+    listItem.innerHTML = `<div class = "requestItemList"><span class = "reqPadding" >Item: ${reqItem.product_name} - Requested Quantity:  <input type="text" id="amount-${reqItem.id}" name="request_amount" placeholder= "${reqItem.amount}"></span> <span><button data-id = ${reqItem.id} class="update update-btn" type ="submit"> Update </button> <button data-id=${reqItem.id} class="remove remove-btn" type= "submit"> Remove </button></span></div>`;
     pantryReq.append(listItem);
 } 
 
@@ -92,6 +92,7 @@ const removeRequest = async (event) => {
 
 const startTimer = () => {
     let timerCount = 3;
+    clearInterval(timer);
     timer = setInterval(function(){
         timerCount --;
         console.log(timerCount);

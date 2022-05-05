@@ -185,6 +185,37 @@ input:focus::placeholder {
     border-color: black;
     border-width: 2px;
 }
+
+.activate-btn{
+  background-color: rgb(23, 83, 139);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    /* margin: 0 0 5px 3%; */
+    border-color: black;
+    border-width: 2px;
+}
+
+.update-btn{
+  background-color: rgb(42, 136, 173);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    /* margin: 0 0 5px 3%; */
+    border-color: black;
+    border-width: 2px;
+}
+
+.remove-btn{
+  background-color: rgb(168, 48, 44);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    /* margin: 0 0 5px 3%; */
+    border-color: black;
+    border-width: 2px;
+}
+
 .item-name-input, .item-amount-input {
   padding-left: 3%;
     padding-right: 3%;
@@ -210,6 +241,12 @@ input:focus::placeholder {
   width: fit-content;
 }
 
+.closed_requests, .req_list {
+  padding-left: 4%;
+  padding-top: 1%;
+  text-decoration: underline;
+}
+
 .closedReqItem {
   display: flex;
   justify-content: space-between;
@@ -227,4 +264,17 @@ input:focus::placeholder {
 
 #pantry_requests {
   width: fit-content;
+}
+
+.isActivated, .isAddedMessage {
+  margin-left: 5%;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.editDeleteMessage {
+  display: flex;
+  justify-content: space-around;
+  font-style: italic;
+  font-weight: bold;
 }
