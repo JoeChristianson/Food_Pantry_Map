@@ -1,5 +1,6 @@
+const { ValidationError } = require("sequelize/types");
+
 const regForm = $(".register-form");
-let checker;
 
 regForm.on('submit',(e)=>{
   e.preventDefault();
@@ -39,11 +40,14 @@ const loginFormHandler = async (event) => {
     const pantryPhone = document.querySelector("#pantry-phone-register").value.trim();
     let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${pantryAddress},+${pantryCity}&key=AIzaSyBBdG5RsjMRgKRndDu3SAs1ri_ZtpDyx74`);
     const result = await response.json()
-    checker = result;
-    console.log(result)
     const pantryLatitude = result.results[0].geometry.location.lat;
     const pantryLongitude = result.results[0].geometry.location.lng;
-    console.log(pantryLatitude)
+    const fields = {username,email,password,pantryName,pantryAddress,pantryCity};
+    const check = validateInput(fields);
+    if (!check.valid){
+      console.log(check.message)
+      return;
+    }
     if (username && email && password) {
       const response = await fetch('/api/user', {
         method: 'POST',
@@ -63,3 +67,10 @@ const loginFormHandler = async (event) => {
   };
   
   document.querySelector('.login-form').addEventListener('submit', loginFormHandler); 
+
+function validateInput(fields){
+  const check = {valid:false};
+  if (fields.username.length<6){
+    check.
+  }
+}
