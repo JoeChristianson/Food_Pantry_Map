@@ -34,18 +34,25 @@ const loginFormHandler = async (event) => {
     const username = document.querySelector('#username-register').value.trim();
     const email = document.querySelector('#email-register').value.trim();
     const password = document.querySelector('#password-register').value.trim();
+    const passwordConfirm = document.querySelector('#password-confirm').value.trim();
+    console.log(passwordConfirm)
     const pantryName = document.querySelector("#pantry-name-register").value.trim();
     const pantryAddress = document.querySelector("#pantry-address-register").value.trim();
     const pantryCity = document.querySelector("#pantry-city-register").value.trim();
     const pantryPhone = document.querySelector("#pantry-phone-register").value.trim();
     let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${pantryAddress},+${pantryCity}&key=AIzaSyBBdG5RsjMRgKRndDu3SAs1ri_ZtpDyx74`);
     const result = await response.json()
+    if (!result.results[0]?.geometry){
+      alert("Invalid Address and/or City");
+      return
+    }
     const pantryLatitude = result.results[0].geometry.location.lat;
     const pantryLongitude = result.results[0].geometry.location.lng;
-    const fields = {username,email,password,pantryName,pantryAddress,pantryCity};
+    const fields = {username,email,password,pantryName,pantryAddress,pantryCity,pantryLatitude,pantryPhone,passwordConfirm};
     const check = validateInput(fields);
+    console.log(pantryPhone)
     if (!check.valid){
-      console.log(check.message)
+      alert(check.message)
       return;
     }
     if (username && email && password) {
@@ -68,9 +75,43 @@ const loginFormHandler = async (event) => {
   
   document.querySelector('.login-form').addEventListener('submit', loginFormHandler); 
 
-// function validateInput(fields){
-//   const check = {valid:false};
-//   if (fields.username.length<6){
-//     check.
-//   }
-// }
+function validateInput(fields){
+
+  const check = {valid:false};
+  if (fields.username.length<6){
+    check.message = "User name must be six characters"
+    return check;
+  }
+ 
+  if (fields.password!==fields.passwordConfirm){
+    check.message = "Passwords do not match"
+    return check;
+  }
+  if (fields.password.length<6){
+    check.message = "Passwords must be at least 6 characters"
+    return check;
+  }
+  if (!fields.email.includes("@")){
+    check.message = "Must provide valid email"
+    return check;
+  }
+
+  if (!fields.pantryLatitude){
+    check.message = "Invalid Address and/or City provided"
+    return check;
+  }
+  if (fields.pantryName == ""){
+    check.message = "Pantry not provided"
+    return check;
+  }
+  const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  console.log(fields.pantryPhone)
+  if (!fields.pantryPhone.match(phoneno)){
+    check.message = "Invalid Phone"
+    return check;
+  }
+  else {
+    check.valid = true;
+    return check;
+  }
+}
