@@ -105,8 +105,8 @@ document.querySelector("#searchBtn").addEventListener("click",(event)=>{
   initMap(searchTerm)
 })
 
-function changeToRedColor(){
-  document.getElementById("searchBtn").style.backgroundColor = "red";
+function changeToOrangeColor(){
+  document.getElementById("searchBtn").style.backgroundColor = "orange";
 }
 function changeToBlueColor(){
   document.getElementById("searchBtn").style.backgroundColor = "blue";
