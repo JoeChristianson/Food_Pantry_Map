@@ -127,11 +127,11 @@ input:focus::placeholder {
 
   display: flex;
   justify-content:center;
-  margin: 0 2% 1% 2%;
+  margin: 0 1% 1% 1%;
 }
 .infoCard{
 
-
+  width: 22.75rem;
   margin: 0 .3px 0 .3px;
 }
 .infoCard:hover{

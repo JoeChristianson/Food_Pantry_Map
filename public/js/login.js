@@ -87,6 +87,10 @@ function validateInput(fields){
     check.message = "Passwords do not match"
     return check;
   }
+  if (fields.password.length<6){
+    check.message = "Passwords must be at least 6 characters"
+    return check;
+  }
   if (!fields.email.includes("@")){
     check.message = "Must provide valid email"
     return check;
