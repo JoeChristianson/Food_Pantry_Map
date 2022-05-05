@@ -1,4 +1,4 @@
-const { ValidationError } = require("sequelize/types");
+
 
 const regForm = $(".register-form");
 
@@ -68,9 +68,9 @@ const loginFormHandler = async (event) => {
   
   document.querySelector('.login-form').addEventListener('submit', loginFormHandler); 
 
-function validateInput(fields){
-  const check = {valid:false};
-  if (fields.username.length<6){
-    check.
-  }
-}
+// function validateInput(fields){
+//   const check = {valid:false};
+//   if (fields.username.length<6){
+//     check.
+//   }
+// }
