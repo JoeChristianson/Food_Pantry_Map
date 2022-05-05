@@ -3,10 +3,13 @@ const address = document.querySelector("#address")
 const city = document.querySelector("#city")
 const reqListTitle = document.querySelector(".req_list")
 const pantryReq = document.querySelector("#pantry_requests")
+const delMessage = document.querySelector(".deleteMessage");
 const pantryReqEdit = $("#pantry_requests");
 const supplyPage = $(".supply_list");
+var timer;
 
 const getPantryData = async ()=>{
+    pantryReqEdit.children('li').remove();
     const response = await fetch('api/pantry');
     console.log(response)
     const data = await response.json()
@@ -33,7 +36,7 @@ const populateInfo = (data)=>{
 
 const addItem = (reqItem) => {
     const listItem = document.createElement("li");
-    listItem.innerHTML = `Item: ${reqItem.product_name} - Requested Quantity:  <input type="text" id="amount-${reqItem.id}" name="request_amount" placeholder= "${reqItem.amount}"> <button data-id = ${reqItem.id} class="update" type ="submit"> Update </button> <button data-id=${reqItem.id} class="delete" type= "submit"> Delete </button>`;
+    listItem.innerHTML = `Item: ${reqItem.product_name} - Requested Quantity:  <input type="text" id="amount-${reqItem.id}" name="request_amount" placeholder= "${reqItem.amount}"> <button data-id = ${reqItem.id} class="update" type ="submit"> Update </button> <button data-id=${reqItem.id} class="remove" type= "submit"> Remove </button>`;
     pantryReq.append(listItem);
 } 
 
@@ -74,15 +77,29 @@ const removeRequest = async (event) => {
     })
     if (response.ok) {
         console.log(response.body)
-        location.reload();
+        delMessage.innerHTML = 'Request successfully removed.';
+        getPantryData();
+        startTimer();
       } else {
         console.log(response)
         alert('Failed to sign up.');
       }
 }
 
+const startTimer = () => {
+    let timerCount = 3;
+    timer = setInterval(function(){
+        timerCount --;
+        console.log(timerCount);
+        if (timerCount <= 0){
+            delMessage.innerHTML = '';
+            clearInterval(timer);
+        }
+    }, 1000);
+}
+
 pantryReqEdit.on("click", ".update", updateRequest);
-pantryReqEdit.on("click", ".delete", removeRequest);
+pantryReqEdit.on("click", ".remove", removeRequest);
 supplyPage.on("click", function(){
     console.log("next page");
     document.location.replace('/stocks')
