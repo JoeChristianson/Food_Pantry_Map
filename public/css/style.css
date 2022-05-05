@@ -101,6 +101,9 @@
 .formBtn{
   float: right;
 }
+.back_btn{
+  margin: 1%;
+}
 #pantry {
   color:darkgreen;
 }
@@ -163,10 +166,52 @@ input:focus::placeholder {
   margin: 1%;
   box-shadow: 5px 2px 2px #605a5b;
   border-radius: 10px 0 10px 0;
+  background-color: beige;
+
 }
 .pantryBtn{
   background-color: rgb(91, 91, 224);
   color: white;
   border-radius: 10px;
   padding: 5px;
+}
+
+.new_item{
+  background-color: rgb(78, 37, 25);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 0 0 5px 3%;
+    border-color: black;
+    border-width: 2px;
+}
+.item-name-input, .item-amount-input {
+  padding-left: 3%;
+    padding-right: 3%;
+}
+
+#request-title{
+  padding-left: 4%;
+    padding-top: 1%;
+    text-decoration: underline;
+}
+
+.newItem-label{
+  border: 1.5px solid black;
+}
+
+.newItem-input{
+  border-bottom: 1.5px solid black;
+  border-top: 1.5px solid black;
+  border-right: 1.5px solid black;
+}
+
+#closed_requests {
+  width: fit-content;
+}
+
+.closedReqItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
 }
