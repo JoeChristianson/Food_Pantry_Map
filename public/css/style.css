@@ -215,3 +215,16 @@ input:focus::placeholder {
   justify-content: space-between;
   margin-bottom: 1%;
 }
+.requestItemList {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.reqPadding {
+  padding-right: 6px;
+}
+
+#pantry_requests {
+  width: fit-content;
+}

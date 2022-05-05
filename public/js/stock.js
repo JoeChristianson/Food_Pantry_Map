@@ -28,7 +28,7 @@ const getClosedReq = async ()=>{
 
 const showItem = (reqItem) => {
     const listItem = document.createElement("li");
-    listItem.innerHTML = `<div class="closedReqItem"><span>Item: ${reqItem.product_name} - Requested Quantity: ${reqItem.amount}</span> <button data-id=${reqItem.id} class="activate" type= "submit"> Activate </button></div>`;
+    listItem.innerHTML = `<div class="closedReqItem"><span class = "reqPadding">Item: ${reqItem.product_name} - Requested Quantity: ${reqItem.amount}</span> <button data-id=${reqItem.id} class="activate" type= "submit"> Activate </button></div>`;
     closedReq.append(listItem);
 }
 
