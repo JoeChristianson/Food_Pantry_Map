@@ -10,13 +10,7 @@
     width: 96%;
     /* The width is the width of the web page */
   }
-.jumbo {
-  display: flex;
-  align-items: center;
-  background-image: linear-gradient(to bottom right, #008C76FF, #9ED9CCFF) ;
-  
-  height: 100px;
-}
+
 .foodie{
   text-decoration: none;
   font-size: 40;
