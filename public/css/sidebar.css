@@ -52,7 +52,7 @@
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #homepage-contents,#map,.info {
     transition: margin-left .5s; /* If you want a transition effect */
-    padding: 20px;
+    padding: 0px 20px;
     width: auto !important;
 
   }
@@ -111,7 +111,7 @@
 
 @media screen and (max-width:700px){
     #open-list{
-        top:420px;
+        top:400px;
         z-index: 10;
         right:unset;
         left:20px;
@@ -127,5 +127,9 @@
 @media screen and (max-width:415px){
     #searchBar{
         transform: translateY(-10px);
+    }
+    #homepage-contents{
+      margin-top:10px;
+      margin-bottom:25px
     }
 }
